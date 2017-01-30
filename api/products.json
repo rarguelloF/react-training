@@ -1,0 +1,12 @@
+[
+  { "name": "Ensalada de espinacas", "category": 1, "measurement": 0, "price": 1.65 },
+  { "name": "Tortellini alla carbonara", "category": 1, "measurement": 0, "price": 1.30 },
+  { "name": "Pollo al curry", "category": 1, "measurement": 0, "price": 1.55 },
+  { "name": "Arroz con verduras", "category": 1, "measurement": 0, "price": 1.55 },
+  { "name": "Pizza primavera", "category": 1, "measurement": 1, "price": 2.00 },
+  { "name": "Carne estofada", "category": 1, "measurement": 0, "price": 2.15 },
+  { "name": "Agua", "category": 2, "measurement": 1, "price": 1.20 },
+  { "name": "Zumo de naranja", "category": 2, "measurement": 1, "price": 2.00 },
+  { "name": "Manzana", "category": 3, "measurement": 1, "price": 2.00 },
+  { "name": "Tarta de queso", "category": 3, "measurement": 1, "price": 2.50 }
+]
