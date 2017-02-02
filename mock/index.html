@@ -1,0 +1,348 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mum's - Comida honesta a un precio justo</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="static/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+  <header id="logo">
+    <img src="static/images/mums.png" alt="" width="" height="">
+  </header>
+  <section id="main" class="container">
+    <div class="row">
+      <div class="col-md-9">
+
+        <div id="showcase">
+
+          <div class="heading-box">
+            <h2 class="heading-2"><i class="fa fa-cutlery" aria-hidden="true"></i>¿Qué te apetece comer hoy?</h2>
+            <p>Selecciona los productos para añadirlos a la cesta y benefíciate de nuestras ofertas.</p>
+          </div>
+          
+          <div class="filters-box">
+            <h3 class="heading-2b">Afina tu búsqueda</h3>
+            <div class="row">
+              <div class="categories col-md-6">
+                <h4 class="heading-4">Categoría</h4>
+                <ul class="categories-box clearfix">
+                  <li><a href="" class="active">Todo</a></li>
+                  <li><a href="">Plato principal</a></li>
+                  <li><a href="">Bebidas</a></li>
+                  <li><a href="">Postre</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <div class="price-box">
+                  <h4 class="heading-4">Precio</h4>
+                  <div class="price">100 €</div>
+                  <input type='range' id='price-filter' class='tip fill fill-replace' value="100" step="1" min="0" max="100">
+                </div>
+              </div>
+              <div class="search-box col-md-3">
+                <h4 class="heading-4">Buscador</h4>
+                <div class="input-search-wrap">
+                  <input type="search" placeholder="Quiero pedir...">
+                  <i class="fa fa-search" aria-hidden=""></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PRODUCTS -->
+          <div id="products">
+            <h3 class="heading-2b">Productos</h3>
+            <div class="products__list row">
+
+              <div class="col-md-4">
+                <div class="product product-first">
+                  <div class="product-image">
+                    <img src="http://espanafascinante.com/wp-content/uploads/portada_blog_gastronomia_recetas_fabada_bi.jpg" alt="">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-category">Plato principal</div>
+                    <h4 class="product-title">Fabada</h4>
+                    <div class="clearfix">
+                      <div class="product-price">
+                        <div class="product-price__title">Precio</div>
+                         2,50 €/100 gr.</div>
+                      <div class="product-select">
+                        <select>
+                          <option value="0">0 gr.</option>
+                          <option value="150">50 gr.</option>
+                          <option value="100">100 gr.</option>
+                          <option value="150">150 gr.</option>
+                          <option value="200">200 gr.</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-footer">
+                    <button class="button product-button">Añadir</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="product product-drink">
+                  <div class="product-image">
+                    <img src="http://www.carrefour.es/supermercado/dyn/MEDIA_CustomProductCatalog/m11021209_l_000041.png" alt="">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-category">Bebida</div>
+                    <h4 class="product-title">Coca-Cola</h4>
+                    <div class="clearfix">
+                      <div class="product-price">
+                        <div class="product-price__title">Precio</div>
+                          0,80 €
+                        </div>
+                      <div class="product-add">
+                        <button class="product-add__minus"><span>-</span></button>
+                        <input type="text" value="1">
+                        <button class="product-add__plus"><span>+</span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-footer">
+                    <button class="button product-button">Añadir</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <div class="product product-dessert">
+                  <div class="product-image">
+                    <img src="http://www.cosasdecome.es/wp-content/uploads/2010/09/Yogur-ecologico-El-Gazul.jpg" alt="">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-category">Postre</div>
+                    <h4 class="product-title">Yogur ecológico</h4>
+                    <div class="clearfix">
+                      <div class="product-price">
+                        <div class="product-price__title">Precio</div>
+                          1,20 €
+                        </div>
+                      <div class="product-add">
+                        <button class="product-add__minus"><span>-</span></button>
+                        <input type="text" value="1">
+                        <button class="product-add__plus"><span>+</span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-footer">
+                    <button class="button product-button">Añadir</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <div class="product product-drink">
+                  <div class="product-image">
+                    <img src="http://www.carrefour.es/supermercado/dyn/MEDIA_CustomProductCatalog/m11011384_l_120204.png?4" alt="">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-category">Bebida</div>
+                    <h4 class="product-title">Botella de agua</h4>
+                    <div class="clearfix">
+                      <div class="product-price">
+                        <div class="product-price__title">Precio</div>
+                          0,80 €
+                        </div>
+                      <div class="product-add">
+                        <button class="product-add__minus"><span>-</span></button>
+                        <input type="text" value="1">
+                        <button class="product-add__plus"><span>+</span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-footer">
+                    <button class="button product-button">Añadir</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="product product-first">
+                  <div class="product-image">
+                    <img src="http://jornadasgastronomicas.org/wp-content/uploads/2014/07/Rabo-de-ternera-en-salsa.jpg" alt="">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-category">Plato principal</div>
+                    <h4 class="product-title">Rabo de ternera en salsa</h4>
+                    <div class="clearfix">
+                      <div class="product-price">
+                        <div class="product-price__title">Precio</div>
+                         2,50 €/100 gr.</div>
+                      <div class="product-select">
+                        <select>
+                          <option value="0">0 gr.</option>
+                          <option value="150">50 gr.</option>
+                          <option value="100">100 gr.</option>
+                          <option value="150">150 gr.</option>
+                          <option value="200">200 gr.</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-footer">
+                    <button class="button product-button">Añadir</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="product product-dessert">
+                  <div class="product-image">
+                    <img src="https://www.recetin.com/wp-content/uploads/2011/10/natillas_en_thermomix.jpg" alt="">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-category">Postre</div>
+                    <h4 class="product-title">Natillas caseras</h4>
+                    <div class="clearfix">
+                      <div class="product-price">
+                        <div class="product-price__title">Precio</div>
+                          1,50 €
+                        </div>
+                      <div class="product-add">
+                        <button class="product-add__minus"><span>-</span></button>
+                        <input type="text" value="1">
+                        <button class="product-add__plus"><span>+</span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-footer">
+                    <button class="button product-button">Añadir</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="pagination clearfix">
+              <p class="pagination-result">1 - 6 de <span>43</span> productos</p>
+              <ul class="pagination__list">
+                <li class="disabled">
+                  <a href="#" class="fa fa-caret-left">
+                  <span aria-label="Anterior"> </span>
+                  </a>
+                </li>
+                <li class="active">
+                  <a href="#">1</a>
+                </li>
+                <li>
+                  <a href="#">2</a>
+                </li>
+                <li>
+                  <a href="#">3</a>
+                </li>
+                <li>
+                  <a href="#">4</a>
+                </li>
+                <li class="disabled">
+                  <a href="#"><span aria-label="Más">…</span></a>
+                </li>
+                <li>
+                  <a href="#">55</a>
+                </li>
+                <li>
+                  <a href="#" class="fa fa-caret-right">
+                    <span aria-label="Siguiente"> </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- END PRODUCTS -->
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="basket">
+          <h2 class="heading-2b"><i class="fa fa-shopping-basket" aria-hidden="true"></i>Tu pedido</h2>
+          <table id="order">
+            <tfoot>
+              <tr>
+                <td colspan="2" class="total-text">Total</td>
+                <td class="total-price">7,50 €</td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td colspan="3" class="order__offer">
+                  <table>
+                    <caption>Descuento menú 1</caption>
+                    <tbody>
+                      <tr class="order__item">
+                        <td class="order__product">Rabo de ternera en salsa</td>
+                        <td class="order__quantity">x 100gr.</td>
+                        <td class="order__price"><span class="price-old">2,50 €</span> <span class="price-discount">1,25 €</span></td>
+                      </tr>
+                      <tr class="order__item">
+                        <td class="order__product">Coca-cola</td>
+                        <td class="order__quantity">x 1</td>
+                        <td class="order__price"><span class="price-old">0,80 €</span> <span class="price-discount">0,60 €</span></td>
+                      </tr>
+                      <tr class="order__item">
+                        <td class="order__product">Yogur ecológico</td>
+                        <td class="order__quantity">x 1</td>
+                        <td class="order__price"><span class="price-old">1,20 €</span> <span class="price-discount">1,00 €</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" class="order__offer">
+                  <table>
+                    <caption>Descuento 3x2</caption>
+                    <tbody>
+                      <tr class="order__item">
+                        <td class="order__product">Coca-cola</td>
+                        <td class="order__quantity">x 1</td>
+                        <td class="order__price">0,80 €</td>
+                      </tr>
+                      <tr class="order__item">
+                        <td class="order__product">Coca-cola</td>
+                        <td class="order__quantity">x 1</td>
+                        <td class="order__price">0,80 €</td>
+                      </tr>
+                      <tr class="order__item">
+                        <td class="order__product">Coca-cola</td>
+                        <td class="order__quantity">x 1</td>
+                        <td class="order__price"><span class="price-old">0,80 €</span> <span class="price-discount">0 €</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr class="order__item">
+                <td class="order__product">Fabada</td>
+                <td class="order__quantity">x 200gr.</td>
+                <td class="order__price">5 €</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="button">Pagar</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    Powered by <strong>Pollos Hermanos 2017</strong> ¯\_(ツ)_/¯
+  </footer>
+
+</body>
+
+</html>
