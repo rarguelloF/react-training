@@ -1,0 +1,20 @@
+{
+  "name": "react-ecosystem-workshop",
+  "version": "1.0.0",
+  "description": "A practical workshop for learning React and its ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "build:webpack": "webpack --config webpack.config.js -p",
+    "build": "npm run clean && npm run build:webpack",
+    "clean": "rimraf dist",
+    "start": "webpack-dev-server --config webpack.config.js"
+  },
+  "author": "Rodrigo Argüello Flores",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^2.5.4",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.1"
+  }
+}
