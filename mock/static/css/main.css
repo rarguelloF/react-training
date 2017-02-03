@@ -599,6 +599,7 @@ a:focus, button:focus {
 	display: table;
 	width: 100%;
 	color: #967c60;
+	font-size: 1.3rem;
 }
 
 #order td {
@@ -617,17 +618,18 @@ a:focus, button:focus {
 .order__quantity,
 .order__price {
 	line-height: 1.6rem;
-	vertical-align: bottom;
+	vertical-align: middle;
 }
 
 .order__product {
 	padding-left: 0;
 	font-weight: 500;
+	width: 55%;
 }
 
 .order__quantity {
 	white-space: nowrap;
-	font-size: 1.2rem;
+	width: 20%;
 }
 
 .order__price {
@@ -635,6 +637,7 @@ a:focus, button:focus {
 	white-space: nowrap;
 	padding-right: 0;
 	font-weight: 500;
+	width: 25%;
 }
 
 #order tfoot td {
@@ -688,6 +691,69 @@ a:focus, button:focus {
   font-weight: bold;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes product-selected {
+	0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  90% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.product.js-animate {
+	animation: product-selected .6s ease-in;
+  position: relative;
+  z-index: 9;
+  opacity: 0;
+}
+
+.js-basket-icon.js-animate {
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.order__item.js-animateme {
+	opacity: 0;
+  transform: scale(1.2);
+}
+
+.order__item.js-animating {
+	opacity: 1;
+  transform: scale(1);
+  transition: all.2s;
 }
 
 footer {
