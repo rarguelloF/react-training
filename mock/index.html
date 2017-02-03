@@ -268,7 +268,7 @@
 
       <div class="col-md-3">
         <div id="basket">
-          <h2 class="heading-2b"><i class="fa fa-shopping-basket" aria-hidden="true"></i>Tu pedido</h2>
+          <h2 class="heading-2b"><i class="fa fa-shopping-basket js-basket-icon" aria-hidden="true"></i>Tu pedido</h2>
           <table id="order">
             <tfoot>
               <tr>
@@ -325,7 +325,7 @@
                   </table>
                 </td>
               </tr>
-              <tr class="order__item">
+              <tr class="order__item js-animateme">
                 <td class="order__product">Fabada</td>
                 <td class="order__quantity">x 200gr.</td>
                 <td class="order__price">5 €</td>
@@ -342,6 +342,27 @@
   <footer>
     Powered by <strong>Pollos Hermanos 2017</strong> ¯\_(ツ)_/¯
   </footer>
+  
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+      $('.product-button').on('click', function(){
+        $(this).parents('.product').addClass('js-animate').one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend',   
+          function(e) {
+            $(this).removeClass('js-animate');
+            $('.order__item.js-animateme').addClass('js-animating').removeClass('js-animateme');
+            $('.js-basket-icon').addClass('js-animate').one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend',   
+          function(e) {
+            $('.js-basket-icon').removeClass('js-animate');
+            $('.order__item.js-animating').removeClass('js-animating');
+          });
+        });
+      });
+    });
+  </script>
 
 </body>
 
