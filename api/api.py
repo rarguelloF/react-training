@@ -5,14 +5,6 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/')
-def index():
-    with open('index.html') as data_file:
-        data = data_file.read()
-
-    return data
-
-
 @app.route('/products')
 def products():
     with open('products.json') as data_file:

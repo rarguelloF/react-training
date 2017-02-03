@@ -1,3 +1,9 @@
+# OS X specific
 .DS_Store
+
+# npm specific
 node_modules/
-dist/
+npm-debug.log
+
+# Webpack specific
+*.bundle.*

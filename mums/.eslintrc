@@ -1,0 +1,14 @@
+---
+extends:
+  - airbnb
+plugins:
+ - babel
+ - react
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+    experimentalObjectRestSpread: true
+env:
+  browser: true
+  node: true
+  mocha: true
