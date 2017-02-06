@@ -20,8 +20,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      // We are gonna tell webpack how it should load all the files is gonna found
-      // while transversing the dependencies.
+      // We are gonna tell webpack how it should load files depending on the extension
       {
         test: /\.jsx?$/,
         loader: [
