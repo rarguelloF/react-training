@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Fabada",
+    "category": "1",
+    "image": "http://espanafascinante.com/wp-content/uploads/portada_blog_gastronomia_recetas_fabada_bi.jpg",
+    "price": 2.8,
+    "measurement": "2"
+  },
+  {
+    "id": 2,
+    "name": "Coca-cola",
+    "category": "2",
+    "image": "http://www.carrefour.es/supermercado/dyn/MEDIA_CustomProductCatalog/m11021209_l_000041.png",
+    "price": 0.8,
+    "measurement": "1"
+  },
+  {
+    "id": 3,
+    "name": "Yogur ecológico",
+    "category": "3",
+    "image": "http://www.cosasdecome.es/wp-content/uploads/2010/09/Yogur-ecologico-El-Gazul.jpg",
+    "price": 1.2,
+    "measurement": "1"
+  },
+  {
+    "id": 4,
+    "name": "Botella de agua",
+    "category": "2",
+    "image": "http://www.carrefour.es/supermercado/dyn/MEDIA_CustomProductCatalog/m11011384_l_120204.png?4",
+    "price": 0.5,
+    "measurement": "1"
+  },
+  {
+    "id": 5,
+    "name": "Rabo de ternera en salsa",
+    "category": "1",
+    "image": "http://jornadasgastronomicas.org/wp-content/uploads/2014/07/Rabo-de-ternera-en-salsa.jpg",
+    "price": 5.4,
+    "measurement": "2"
+  },
+  {
+    "id": 6,
+    "name": "Natillas caseras",
+    "category": "3",
+    "image": "https://www.recetin.com/wp-content/uploads/2011/10/natillas_en_thermomix.jpg",
+    "price": 1.5,
+    "measurement": "1"
+  },
+  {
+    "id": 7,
+    "name": "Macarrones a la carbonara",
+    "category": "1",
+    "image": "https://genogourmet.files.wordpress.com/2014/05/10418551_10203928831082807_937064881_o.jpg",
+    "price": 3.35,
+    "measurement": "2"
+  },
+  {
+    "id": 8,
+    "name": "Kalimotxo",
+    "category": "2",
+    "image": "https://mirincondelabahia.files.wordpress.com/2012/05/kalimotxo.jpg",
+    "price": 2.9,
+    "measurement": "1"
+  },
+  {
+    "id": 9,
+    "name": "Hamburguesa",
+    "category": "1",
+    "image": "https://farm4.staticflickr.com/3936/15408866788_688bc2ebec_c.jpg",
+    "price": 6.9,
+    "measurement": "1"
+  },
+  {
+    "id": 10,
+    "name": "Vino tinto",
+    "category": "2",
+    "image": "https://s0.dia.es/medias/h7e/he8/8894343643166.jpg",
+    "price": 0.5,
+    "measurement": "1"
+  },
+  {
+    "id": 11,
+    "name": "Hormigas culonas",
+    "category": "1",
+    "image": "http://cdn.colombia.com/sdi/2011/07/25/hormigas-culonas-496327.jpg",
+    "price": 3.6,
+    "measurement": "2"
+  },
+  {
+    "id": 12,
+    "name": "Frozen Oreo",
+    "category": "3",
+    "image": "https://media-cdn.tripadvisor.com/media/photo-s/0a/28/53/d9/frozen-oreo-de-goikogrill.jpg",
+    "price": 4,
+    "measurement": "1"
+  },
+  {
+    "id": 13,
+    "name": "Pizza Pepperoni",
+    "category": "1",
+    "image": "http://www.ocio.net/wp-content/uploads/2015/12/pizza-pepperoni-w857h456.jpg",
+    "price": 6,
+    "measurement": "1"
+  },
+  {
+    "id": 14,
+    "name": "Agua del grifo",
+    "category": "2",
+    "image": "http://img.soy-chile.cl/Fotos/2015/01/27/file_20150127184928.jpg",
+    "price": 0.1,
+    "measurement": "1"
+  },
+  {
+    "id": 15,
+    "name": "Pollo al horno con patatas",
+    "category": "1",
+    "image": "https://unareceta.com/wp-content/uploads/2016/10/pollo-al-horno.jpg",
+    "price": 4.5,
+    "measurement": "1"
+  }
+]
