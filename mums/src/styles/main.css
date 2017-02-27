@@ -254,28 +254,29 @@ a:focus, button:focus {
 	margin-right: 10px;
 }
 
-.categories-box li a {
+.categories-box li button {
+  border: 1px solid #ededed;
 	padding: 10px;
 	color: #fff;
-	background-color: #e6c8a9;	
+	background-color: #e6c8a9;
 	font-size: 1.4rem;
 	display: block;
 	font-weight: 500;
 	border-radius: 3px;
 }
 
-.categories-box li a.active {
-	background-color: #42ab9e;	
+.categories-box li button.active {
+	background-color: #42ab9e;
 }
 
-.categories-box li a:hover,
-.categories-box li a:focus {
+.categories-box li button:hover,
+.categories-box li button:focus {
 	text-decoration: none;
 	background-color: #d2af8b;
 }
 
-.categories-box li a.active:hover,
-.categories-box li a.active:focus {
+.categories-box li button.active:hover,
+.categories-box li button.active:focus {
 	text-decoration: none;
 	background-color: #288075;
 }
@@ -410,7 +411,7 @@ a:focus, button:focus {
 
 .product-price {
 	color: #967c5f;
-	float: left;	
+	float: left;
 }
 
 .product-price__title {

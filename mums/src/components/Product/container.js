@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addProductToCart } from 'src/actionCreators/shop';
+import { addProductToCart } from 'src/actionCreators/gallery';
 import Product from './component';
 
 
