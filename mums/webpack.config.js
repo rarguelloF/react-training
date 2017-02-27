@@ -1,15 +1,23 @@
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  context:  path.resolve(__dirname, 'src'),
-  entry: './index.jsx',
+  entry: {
+    app: './src/index.jsx',
+    styles: [
+      'font-awesome/css/font-awesome.min.css',
+      'bootstrap/dist/css/bootstrap.min.css',
+      './src/styles/main.css'
+    ]
+  },
   output: {
-    path: path.resolve(__dirname, 'public/js'),
-    filename: 'app.bundle.js',
+    path: path.resolve(__dirname, 'public/dist'),
+    filename: '[name].bundle.js',
   },
   devServer: {
     host: '127.0.0.1',
     port: 3000,
+    publicPath: '/dist/',
     contentBase: './public',
   },
   devtool: 'source-map',
@@ -26,7 +34,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [
+    rules: [
       // We are gonna tell webpack how it should load files depending on the extension
       {
         test: /\.jsx?$/,
@@ -38,15 +46,36 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: [
-          'style-loader',
-          'css-loader',
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       },
       {
         test: /\.html$/,
-        loader: 'file-loader?name=[name].[ext]',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      }
     ],
   },
+  plugins: [
+    new ExtractTextPlugin('styles.bundle.css'),
+  ],
 };
