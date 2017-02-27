@@ -1,19 +1,17 @@
 import React, { PropTypes } from 'react';
 
-import ProductHelpers from 'src/helpers/product';
+import { MEASUREMENT } from 'src/helpers/constants';
 
 
 const propTypes = {
   value: PropTypes.number.isRequired,
   setValue: PropTypes.func.isRequired,
-  measurement: PropTypes.oneOf(ProductHelpers.measurement.choices).isRequired,
+  measurement: PropTypes.oneOf(MEASUREMENT.choices).isRequired,
 };
 
 function QuantitySelector(props) {
-  const { WEIGHT, UNITS } = ProductHelpers.measurement.enum;
-
   switch (props.measurement) {
-    case WEIGHT: {
+    case MEASUREMENT.enum.WEIGHT: {
       return (
         <div className="product-select">
           <select
@@ -34,7 +32,7 @@ function QuantitySelector(props) {
         </div>
       );
     }
-    case UNITS: {
+    case MEASUREMENT.enum.UNITS: {
       return (
         <div className="product-add">
           <button

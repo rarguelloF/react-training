@@ -2,10 +2,9 @@ import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
 import orderBy from 'lodash.orderby';
 
-import productHelpers, { Menu, ThreeByTwo, NoDiscount } from './product';
+import { CATEGORY, MEASUREMENT } from './constants';
 
-const CATEGORIES = productHelpers.category.enum;
-const MEASUREMENT = productHelpers.measurement.enum;
+import { Menu, ThreeByTwo, NoDiscount } from './discountModels';
 
 
 export function insertProductToCart(cart, product, quantity) {
@@ -27,7 +26,7 @@ function menuDiscounts(products) {
   // flatten the products array by the quantity property so now an item with
   // quantity: 2 it's converted to two items with quantitiy: 1
   const flatProds = products.reduce((acc, prod) => (
-    prod.measurement !== MEASUREMENT.WEIGHT ?
+    prod.measurement !== MEASUREMENT.enum.WEIGHT ?
       acc.concat(Array(prod.quantity).fill({ ...prod, quantity: 1 })) :
       acc.concat(prod)
   ), []);
@@ -35,15 +34,15 @@ function menuDiscounts(products) {
   const productsByCategory = groupBy(flatProds, 'category');
 
   // groupBy couldn't group by all the necessary categories for creating 1 menu
-  if (Object.keys(productsByCategory).length !== Object.keys(CATEGORIES).length) {
+  if (Object.keys(productsByCategory).length !== Object.keys(CATEGORY.enum).length) {
     return [[], products];
   }
 
   // work with the grouped products as an array of arrays
   const arrProducts = [
-    productsByCategory[CATEGORIES.MAIN_DISH],
-    productsByCategory[CATEGORIES.DRINK],
-    productsByCategory[CATEGORIES.DESSERT],
+    productsByCategory[CATEGORY.enum.MAIN_DISH],
+    productsByCategory[CATEGORY.enum.DRINK],
+    productsByCategory[CATEGORY.enum.DESSERT],
   ];
 
   // the number of menus we can create is equal to the length of the smallest array
@@ -60,6 +59,7 @@ function menuDiscounts(products) {
         notDiscountable: [...acc.notDiscountable, ...ord.slice(numMenus)],
       };
     }, { discountable: [], notDiscountable: [] });
+
 
   // create the menu objects
   const menus = zip(...splitted.discountable)
@@ -81,7 +81,7 @@ function menuDiscounts(products) {
 
 function threeByTwoDiscounts(products) {
   const prodsObj = products.reduce((acc, prod) => {
-    if (prod.measurement === MEASUREMENT.WEIGHT || prod.quantity < 3) {
+    if (prod.measurement === MEASUREMENT.enum.WEIGHT || prod.quantity < 3) {
       return {
         ...acc,
         notDiscountable: acc.notDiscountable.concat(prod),
@@ -105,8 +105,8 @@ function threeByTwoDiscounts(products) {
 
 
   return [
-    orderBy(prodsObj.discountable, 'product.id'),
-    orderBy(prodsObj.notDiscountable, 'product.id'),
+    orderBy(prodsObj.discountable, 'id'),
+    orderBy(prodsObj.notDiscountable, 'id'),
   ];
 }
 
@@ -124,7 +124,7 @@ export function groupProductsByDiscount(products) {
 
   const noDiscount = orderBy(
     notDiscountedByThreeByTwo.map(prod => new NoDiscount(prod)),
-    'product.id',
+    'id',
   );
 
   return {

@@ -1,20 +1,16 @@
 import React from 'react';
 
+
 export default function CategoryFilter(props) {
-  const allEnabledByOthersNotActive = (
-    !props.categoryFilters.mainDish &&
-    !props.categoryFilters.drink &&
-    !props.categoryFilters.dessert
-  )
-  const allEnabledByOthersActive = (
-    props.categoryFilters.mainDish &&
-    props.categoryFilters.drink &&
-    props.categoryFilters.dessert
-  );
+  const { mainDish, drink, dessert } = props.categoryFilters;
+
+  const allEnabledByOthersNotActive = (!mainDish && !drink && !dessert);
+  const allEnabledByOthersActive = (mainDish && drink && dessert);
+
   const allEnabled = allEnabledByOthersNotActive || allEnabledByOthersActive;
-  const mainDishEnabled = !allEnabledByOthersNotActive && props.categoryFilters.mainDish === true;
-  const drinkEnabled = !allEnabledByOthersNotActive && props.categoryFilters.drink === true;
-  const dessertEnabled = !allEnabledByOthersNotActive && props.categoryFilters.dessert === true;
+  const mainDishEnabled = !allEnabledByOthersNotActive && mainDish;
+  const drinkEnabled = !allEnabledByOthersNotActive && drink;
+  const dessertEnabled = !allEnabledByOthersNotActive && dessert;
 
   return (
     <div className="categories col-md-6">

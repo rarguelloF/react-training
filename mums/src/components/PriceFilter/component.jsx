@@ -3,11 +3,13 @@ import React, { PropTypes } from 'react';
 const propTypes = {
   minPrice: PropTypes.number,
   maxPrice: PropTypes.number,
+  step: PropTypes.number,
   selectedPrice: PropTypes.number.isRequired,
   changePrice: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
+  step: 1,
   minPrice: 0,
   maxPrice: 100,
 };
@@ -22,9 +24,9 @@ function PriceFilter(props) {
           type="range"
           id="price-filter"
           className="tip fill fill-replace"
-          onChange={event => props.changePrice(parseInt(event.target.value, 10))}
+          onChange={event => props.changePrice(parseFloat(event.target.value, 10))}
           value={props.selectedPrice}
-          step="1"
+          step={props.step}
           min={props.minPrice}
           max={props.maxPrice}
         />

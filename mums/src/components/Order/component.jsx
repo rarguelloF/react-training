@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-import OrderMenu from 'src/components/OrderMenu';
-import Order3x2 from 'src/components/Order3x2';
+import OrderDiscount from 'src/components/OrderDiscount';
 import OrderProduct from 'src/components/OrderProduct';
 
 import {
@@ -10,7 +9,11 @@ import {
 } from 'src/helpers/cart';
 
 
-export default function Order(props) {
+const propTypes = {
+  products: PropTypes.array.isRequired,
+};
+
+function Order(props) {
   const productsByDiscount = groupProductsByDiscount(props.products);
   const { menus, threeByTwo, noDiscount } = productsByDiscount;
 
@@ -18,25 +21,25 @@ export default function Order(props) {
     <table id="order">
       <tbody>
         {menus.map(menu => (
-          <OrderMenu
-            {...menu}
+          <OrderDiscount
             key={menu.id}
-            oldPrice={menu.oldPrice}
-            totalPrice={menu.totalPrice}
+            title={`Descuento menú ${menu.id}`}
+            products={[menu.mainDish, menu.drink, menu.dessert]}
           />
         ))}
         {threeByTwo.map(elem => (
-          <Order3x2
-            {...elem}
-            key={elem.product.id}
-            oldPrice={elem.oldPrice}
-            totalPrice={elem.totalPrice}
+          <OrderDiscount
+            key={elem.id}
+            title="Descuento 3x2"
+            products={[elem]}
           />
         ))}
         {noDiscount.map(elem => (
           <OrderProduct
-            {...elem}
-            key={elem.product.id}
+            key={elem.id}
+            name={elem.name}
+            quantity={elem.quantity}
+            measurement={elem.measurement}
             totalPrice={elem.totalPrice}
           />
         ))}
@@ -50,3 +53,7 @@ export default function Order(props) {
     </table>
   );
 }
+
+Order.propTypes = propTypes;
+
+export default Order;

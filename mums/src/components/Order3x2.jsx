@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import ProductHelpers from 'src/helpers/product';
+import ProductModel from 'src/helpers/product';
 
 const propTypes = {
   product: PropTypes.object.isRequired,
@@ -10,7 +10,7 @@ const propTypes = {
 
 
 function Order3x2(props) {
-  const measurementHelper = ProductHelpers.measurement[props.product.measurement];
+  const product = new ProductModel(props.product);
 
   return (
     <tr>
@@ -21,7 +21,7 @@ function Order3x2(props) {
             <tr className="order__item">
               <td className="order__product">{props.product.name}</td>
               <td className="order__quantity">
-                x {measurementHelper.formatQuantity(props.product.quantity)}
+                {product.displayQuantity(product.quantity)}
               </td>
               <td className="order__price">
                 <span className="price-old">{props.oldPrice} € </span>

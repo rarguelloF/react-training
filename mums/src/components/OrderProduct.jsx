@@ -1,23 +1,37 @@
 import React, { PropTypes } from 'react';
 
-import ProductHelpers from 'src/helpers/product';
+import { MEASUREMENT } from 'src/helpers/constants';
 
 const propTypes = {
-  product: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  measurement: PropTypes.oneOf(MEASUREMENT.choices).isRequired,
   totalPrice: PropTypes.number.isRequired,
 };
 
 
 function OrderProduct(props) {
-  const measurementHelper = ProductHelpers.measurement[props.product.measurement];
+  const displayQuantity = () => {
+    switch (props.measurement) {
+      case (MEASUREMENT.enum.UNITS): {
+        return `x ${props.quantity} ud.`;
+      }
+      case (MEASUREMENT.enum.WEIGHT): {
+        return `x ${props.quantity * 100} gr.`;
+      }
+      default: {
+        return undefined;
+      }
+    }
+  };
 
   return (
     <tr className="order__item">
       <td className="order__product">
-        {props.product.name}
+        {props.name}
       </td>
       <td className="order__quantity">
-        x {measurementHelper.formatQuantity(props.product.quantity)}
+        {displayQuantity()}
       </td>
       <td className="order__price">
         {props.totalPrice} €

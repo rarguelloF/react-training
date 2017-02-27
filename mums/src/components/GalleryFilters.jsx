@@ -10,7 +10,7 @@ export default function GalleryFilters() {
       <h3 className="heading-2b">Afina tu búsqueda</h3>
       <div className="row">
         <CategoryFilter />
-        <PriceFilter maxPrice={20} />
+        <PriceFilter maxPrice={10} step={0.25} />
         <SearchFilter />
       </div>
     </div>

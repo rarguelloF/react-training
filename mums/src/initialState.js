@@ -9,7 +9,7 @@ export default {
         drink: false,
         dessert: false,
       },
-      price: 20,
+      price: 10,
       searchTerm: '',
     },
   },

@@ -9,7 +9,7 @@ import {
 } from './cart';
 
 
-describe('cart helpers', () => {
+describe('helpers/cart.js', () => {
   describe('groupProductsByDiscount', () => {
     it('should work', () => {
       const cart = [
@@ -24,55 +24,33 @@ describe('cart helpers', () => {
         menus: [
           {
             id: 1,
-            mainDish: {
-              product: { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
-            },
-            drink: {
-              product: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
-            },
-            dessert: {
-              product: { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
-            },
+            mainDish: { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
+            drink: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
+            dessert: { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
           },
           {
             id: 2,
-            mainDish: {
-              product: { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
-            },
-            drink: {
-              product: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
-            },
-            dessert: {
-              product: { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
-            },
+            mainDish: { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
+            drink: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
+            dessert: { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
           },
         ],
         threeByTwo: [
-          {
-            product: { id: 4, name: 'patatin', category: '1', measurement: '1', price: 1.9, quantity: 3 },
-          },
-          {
-            product: { id: 5, name: 'patatufla', category: '1', measurement: '1', price: 1.7, quantity: 6 },
-          },
+          { id: 4, name: 'patatin', category: '1', measurement: '1', price: 1.9, quantity: 3 },
+          { id: 5, name: 'patatufla', category: '1', measurement: '1', price: 1.7, quantity: 6 },
         ],
         noDiscount: [
-          {
-            product: { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
-          },
-          {
-            product: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
-          },
-          {
-            product: { id: 5, name: 'patatufla', category: '1', measurement: '1', price: 1.7, quantity: 1 },
-          },
+          { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
+          { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
+          { id: 5, name: 'patatufla', category: '1', measurement: '1', price: 1.7, quantity: 1 },
         ],
       };
 
       const result = groupProductsByDiscount(cart);
 
-      expect(result.menus).to.eql(expected.menus);
-      expect(result.threeByTwo).to.eql(expected.threeByTwo);
-      expect(result.noDiscount).to.eql(expected.noDiscount);
+      expect(result.menus).to.eql(expected.menus, 'menus wrong');
+      expect(result.threeByTwo).to.eql(expected.threeByTwo, '3x2 are wrong');
+      expect(result.noDiscount).to.eql(expected.noDiscount, 'no discounts are wrong');
 
       expect(result.menus[0].mainDish.oldPrice).to.be(1.5);
       expect(result.menus[0].mainDish.totalPrice).to.be(1.2);
@@ -125,12 +103,8 @@ describe('cart helpers', () => {
         menus: [],
         threeByTwo: [],
         noDiscount: [
-          {
-            product: { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
-          },
-          {
-            product: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
-          },
+          { id: 1, name: 'patata', category: '1', measurement: '1', price: 1.5, quantity: 1 },
+          { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
         ],
       };
 
@@ -150,9 +124,7 @@ describe('cart helpers', () => {
         menus: [],
         threeByTwo: [],
         noDiscount: [
-          {
-            product: { id: 1, name: 'patata', category: '1', measurement: '2', price: 1.5, quantity: 3 },
-          },
+          { id: 1, name: 'patata', category: '1', measurement: '2', price: 1.5, quantity: 3 },
         ],
       };
 
@@ -174,25 +146,15 @@ describe('cart helpers', () => {
         menus: [
           {
             id: 1,
-            mainDish: {
-              product: { id: 1, name: 'patata', category: '1', measurement: '2', price: 1.5, quantity: 22.5 },
-            },
-            drink: {
-              product: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
-            },
-            dessert: {
-              product: { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
-            },
+            mainDish: { id: 1, name: 'patata', category: '1', measurement: '2', price: 1.5, quantity: 22.5 },
+            drink: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
+            dessert: { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
           },
         ],
         threeByTwo: [],
         noDiscount: [
-          {
-            product: { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
-          },
-          {
-            product: { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
-          },
+          { id: 2, name: 'agua', category: '2', measurement: '1', price: 1.5, quantity: 1 },
+          { id: 3, name: 'tarta de queso', category: '3', measurement: '1', price: 1.5, quantity: 1 },
         ],
       };
 

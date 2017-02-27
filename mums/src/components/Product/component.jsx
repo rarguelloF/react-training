@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 
 import QuantitySelector from 'src/components/QuantitySelector';
-import ProductHelpers from 'src/helpers/product';
+
+import { CATEGORY, MEASUREMENT } from 'src/helpers/constants';
 
 
 // Parametrize the component: https://facebook.github.io/react/docs/typechecking-with-proptypes.html
@@ -9,8 +10,8 @@ const propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  category: PropTypes.oneOf(ProductHelpers.category.choices).isRequired,
-  measurement: PropTypes.oneOf(ProductHelpers.measurement.choices).isRequired,
+  category: PropTypes.oneOf(CATEGORY.choices).isRequired,
+  measurement: PropTypes.oneOf(MEASUREMENT.choices).isRequired,
   addProductToCart: PropTypes.func.isRequired,
 };
 
@@ -23,10 +24,60 @@ class Product extends React.Component {
       quantity: 1,
     };
 
-    this.categoryHelper = ProductHelpers.category[this.props.category];
-    this.measurementHelper = ProductHelpers.measurement[this.props.measurement];
     this.updateQuantity = this.updateQuantity.bind(this);
     this.addProductToCart = this.addProductToCart.bind(this);
+  }
+
+  addProductToCart() {
+    this.props.addProductToCart({ ...this.props }, this.state.quantity);
+  }
+
+  getCategoryName() {
+    switch (this.props.category) {
+      case (CATEGORY.enum.MAIN_DISH): {
+        return 'Plato principal';
+      }
+      case (CATEGORY.enum.DRINK): {
+        return 'Bebida';
+      }
+      case (CATEGORY.enum.DESSERT): {
+        return 'Postre';
+      }
+      default: {
+        return undefined;
+      }
+    }
+  }
+
+  getCategoryClassName() {
+    switch (this.props.category) {
+      case (CATEGORY.enum.MAIN_DISH): {
+        return 'product-first';
+      }
+      case (CATEGORY.enum.DRINK): {
+        return 'product-drink';
+      }
+      case (CATEGORY.enum.DESSERT): {
+        return 'product-dessert';
+      }
+      default: {
+        return undefined;
+      }
+    }
+  }
+
+  getDisplayPrice() {
+    switch (this.props.measurement) {
+      case (MEASUREMENT.enum.UNITS): {
+        return `${this.props.price} €`;
+      }
+      case (MEASUREMENT.enum.WEIGHT): {
+        return `${this.props.price} €/100 gr.`;
+      }
+      default: {
+        return undefined;
+      }
+    }
   }
 
   updateQuantity(val) {
@@ -37,20 +88,16 @@ class Product extends React.Component {
     }
   }
 
-  addProductToCart() {
-    this.props.addProductToCart({ ...this.props }, this.state.quantity);
-  }
-
   render() {
     return (
       <div className="col-md-4">
-        <div className={`product ${this.categoryHelper.className}`}>
+        <div className={`product ${this.getCategoryClassName()}`}>
           <div className="product-image">
             <img src={this.props.image} alt="" />
           </div>
           <div className="product-info">
             <div className="product-category">
-              {this.categoryHelper.verboseName}
+              {this.getCategoryName()}
             </div>
             <h4 className="product-title">
               {this.props.name}
@@ -61,7 +108,7 @@ class Product extends React.Component {
                   Precio
                 </div>
                 <span>
-                  {this.measurementHelper.formatProductPrice(this.props.price)}
+                  {this.getDisplayPrice()}
                 </span>
               </div>
               <QuantitySelector
