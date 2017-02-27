@@ -60,6 +60,15 @@ export default function gallery(state = initialState.gallery, action) {
         },
       };
     }
+    case 'CHANGE_SEARCH_FILTER': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          searchTerm: action.searchTerm,
+        },
+      };
+    }
     default: {
       return state;
     }

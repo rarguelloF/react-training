@@ -7,6 +7,7 @@ export default {
         dessert: false,
       },
       price: 20,
+      searchTerm: '',
     },
     products: [],
   },

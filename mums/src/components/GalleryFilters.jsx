@@ -2,7 +2,7 @@ import React from 'react';
 
 import CategoryFilter from 'src/components/CategoryFilter';
 import PriceFilter from 'src/components/PriceFilter';
-
+import SearchFilter from 'src/components/SearchFilter';
 
 export default function GalleryFilters() {
   return (
@@ -11,13 +11,7 @@ export default function GalleryFilters() {
       <div className="row">
         <CategoryFilter />
         <PriceFilter maxPrice={20} />
-        <div className="search-box col-md-3">
-          <h4 className="heading-4">Buscador</h4>
-          <div className="input-search-wrap">
-            <input type="search" placeholder="Quiero pedir..." />
-            <i className="fa fa-search" aria-hidden />
-          </div>
-        </div>
+        <SearchFilter />
       </div>
     </div>
   );

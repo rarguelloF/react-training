@@ -25,3 +25,8 @@ export const changePriceFilter = price => ({
   type: 'CHANGE_PRICE_FILTER',
   price,
 });
+
+export const changeSearchFilter = searchTerm => ({
+  type: 'CHANGE_SEARCH_FILTER',
+  searchTerm,
+});

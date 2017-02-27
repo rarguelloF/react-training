@@ -14,7 +14,10 @@ function shouldDisplayProduct(product, filters) {
 
   const filterByPrice = product.price <= filters.price;
 
-  return filterByCategory && filterByPrice;
+  const filterBySearchTerm = product.name.toLowerCase()
+    .includes(filters.searchTerm.toLowerCase());
+
+  return filterByCategory && filterByPrice && filterBySearchTerm;
 }
 
 // See: https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle
