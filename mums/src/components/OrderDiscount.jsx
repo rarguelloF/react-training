@@ -14,14 +14,14 @@ const propTypes = {
   })).isRequired,
 };
 
-function OrderMenu(props) {
-  const displayQuantity = () => {
-    switch (props.measurement) {
+function OrderDiscount(props) {
+  const displayQuantity = (product) => {
+    switch (product.measurement) {
       case (MEASUREMENT.enum.UNITS): {
-        return `x ${props.quantity} ud.`;
+        return `x ${product.quantity} ud.`;
       }
       case (MEASUREMENT.enum.WEIGHT): {
-        return `x ${props.quantity * 100} gr.`;
+        return `x ${product.quantity * 100} gr.`;
       }
       default: {
         return undefined;
@@ -39,7 +39,7 @@ function OrderMenu(props) {
               <tr key={product.id} className="order__item">
                 <td className="order__product">{product.name}</td>
                 <td className="order__quantity">
-                  {displayQuantity()}
+                  {displayQuantity(product)}
                 </td>
                 <td className="order__price">
                   <span className="price-old">{product.oldPrice} €</span>
@@ -54,5 +54,5 @@ function OrderMenu(props) {
   );
 }
 
-OrderMenu.propTypes = propTypes;
-export default OrderMenu;
+OrderDiscount.propTypes = propTypes;
+export default OrderDiscount;
