@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
   context:  path.resolve(__dirname, 'src'),
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   entry: './index.jsx',
   output: {
     path: path.resolve(__dirname, 'public/js'),

@@ -3,6 +3,9 @@ import React from 'react';
 
 // ES6: import the non-default export 'render' from 'react-dom' module
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+
+import store from './store';
 
 // Import styles
 import './styles/main.css';
@@ -13,11 +16,13 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 const App = (
-  <div>
-    <Header />
-    <Main />
-    <Footer />
-  </div>
+  <Provider store={store}>
+    <div>
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+  </Provider>
 );
 
 render(App, document.getElementById('root'));

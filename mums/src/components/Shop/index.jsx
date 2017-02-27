@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from './Header';
 import Filters from './Filters';
-import Products from './Products';
+import ProductList from './ProductList';
 
 
 export default function Shop() {
@@ -11,7 +11,7 @@ export default function Shop() {
       <div id="showcase">
         <Header />
         <Filters />
-        <Products />
+        <ProductList />
       </div>
     </div>
   );
