@@ -2,13 +2,13 @@
 
 ### Demo
 
-![demo](https://github.com/rarguelloF/react-training/raw/demo.gif)
+![demo](https://github.com/rarguelloF/react-training/blob/master/demo.gif)
 
 ### Application
 
 We will build the application shown as shown above.
 
-The mock is located [here](https://github.com/rarguelloF/react-training/raw/design/index.html).
+The mock is located [here](https://github.com/rarguelloF/react-training/blob/master/design/index.html).
 
 Algorithms discounts:
 - When a main dish, a drink and a dessert are present in the shopping cart, they should be grouped and conform a **menu**. If there are multiple choices to create the menu, it has to be created with the cheaper products. *Menus have 20% discount*.
