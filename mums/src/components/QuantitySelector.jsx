@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import ProductHelpers from '../../../helpers/product';
+import ProductHelpers from 'src/helpers/product';
 
 
 const propTypes = {

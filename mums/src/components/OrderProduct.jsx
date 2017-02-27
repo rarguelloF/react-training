@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-import ProductHelpers from '../../../helpers/product';
+import ProductHelpers from 'src/helpers/product';
+
+const propTypes = {
+  name: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  measurement: PropTypes.oneOf(ProductHelpers.measurement.choices).isRequired,
+  price: PropTypes.number.isRequired,
+};
 
 
-export default function NoDiscount(props) {
+function OrderProduct(props) {
   const measurementHelper = ProductHelpers.measurement[props.measurement];
 
   return (
@@ -20,3 +27,6 @@ export default function NoDiscount(props) {
     </tr>
   );
 }
+
+OrderProduct.propTypes = propTypes;
+export default OrderProduct;

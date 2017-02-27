@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header() {
+export default function GalleryHeader() {
   return (
     <div className="heading-box">
       <h2 className="heading-2">

@@ -11,17 +11,11 @@ import store from './store';
 import './styles/main.css';
 
 // Import components
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import MainPage from './components/MainPage';
 
 const App = (
   <Provider store={store}>
-    <div>
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <MainPage />
   </Provider>
 );
 

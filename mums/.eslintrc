@@ -12,3 +12,7 @@ env:
   browser: true
   node: true
   mocha: true
+settings:
+  import/resolver:
+    webpack:
+      config: 'webpack.config.js'

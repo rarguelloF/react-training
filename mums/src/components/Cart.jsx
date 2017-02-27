@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from './Header';
+import CartHeader from './CartHeader';
 import Order from './Order';
 import PayButton from './PayButton';
 
@@ -9,7 +9,7 @@ export default function Cart() {
   return (
     <div className="col-md-3">
       <div id="basket">
-        <Header />
+        <CartHeader />
         <Order />
         <PayButton />
       </div>

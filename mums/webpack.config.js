@@ -2,7 +2,6 @@ var path = require('path');
 
 module.exports = {
   context:  path.resolve(__dirname, 'src'),
-  devtool: 'source-map',
   entry: './index.jsx',
   output: {
     path: path.resolve(__dirname, 'public/js'),
@@ -13,7 +12,14 @@ module.exports = {
     port: 3000,
     contentBase: './public',
   },
+  devtool: 'source-map',
   resolve: {
+    // Create our custom aliases here so we don't have to write relative paths.
+    // To integrate this with eslint, you have to specify it in your .eslintrc file
+    // and use the 'eslint-import-resolver-webpack' plugin.
+    alias: {
+      src: path.resolve(__dirname, './src')
+    },
     // This config allow us to import .js(x) files without specifing extension
     // Example:
     // import Main from './components/Main';

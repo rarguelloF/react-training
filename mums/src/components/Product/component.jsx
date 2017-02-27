@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 
-import QuantitySelector from './QuantitySelector';
-
-import ProductHelpers from '../../../helpers/product';
+import QuantitySelector from 'src/components/QuantitySelector';
+import ProductHelpers from 'src/helpers/product';
 
 
 // Parametrize the component: https://facebook.github.io/react/docs/typechecking-with-proptypes.html
