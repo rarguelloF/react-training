@@ -1,3 +1,33 @@
+export function Menu(product) {
+  this.product = product;
+  Object.defineProperty(this, 'oldPrice', {
+    get: () => Math.round(this.product.price * this.product.quantity * 100) / 100,
+  });
+  Object.defineProperty(this, 'totalPrice', {
+    get: () => Math.round(this.product.price * this.product.quantity * 0.8 * 100) / 100,
+  });
+}
+
+export function ThreeByTwo(product) {
+  this.product = product;
+  Object.defineProperty(this, 'oldPrice', {
+    get: () => Math.round(this.product.price * this.product.quantity * 100) / 100,
+  });
+  Object.defineProperty(this, 'totalPrice', {
+    get: () => {
+      const numThreeByTwo = parseInt(this.product.quantity / 3, 10);
+      return Math.round(this.product.price * ((3 * numThreeByTwo) - numThreeByTwo) * 100) / 100;
+    },
+  });
+}
+
+export function NoDiscount(product) {
+  this.product = product;
+  Object.defineProperty(this, 'totalPrice', {
+    get: () => Math.round(this.product.price * this.product.quantity * 100) / 100,
+  });
+}
+
 export default {
   category: {
     enum: {

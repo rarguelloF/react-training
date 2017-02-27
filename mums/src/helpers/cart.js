@@ -2,7 +2,7 @@ import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
 import orderBy from 'lodash.orderby';
 
-import productHelpers from './product';
+import productHelpers, { Menu, ThreeByTwo, NoDiscount } from './product';
 
 const CATEGORIES = productHelpers.category.enum;
 const MEASUREMENT = productHelpers.measurement.enum;
@@ -66,9 +66,9 @@ function menuDiscounts(products) {
     .map((prods, i) => (
       {
         id: i + 1,
-        mainDish: prods[0],
-        drink: prods[1],
-        dessert: prods[2],
+        mainDish: new Menu(prods[0]),
+        drink: new Menu(prods[1]),
+        dessert: new Menu(prods[2]),
       }
     ));
 
@@ -88,9 +88,14 @@ function threeByTwoDiscounts(products) {
       };
     }
 
+    // move N number of units divisible by 3 into the discountable group
+    const numThreeByTwo = parseInt(prod.quantity / 3, 10);
+
     const discountable = acc.discountable.concat(
-      { ...prod, quantity: 3 * parseInt(prod.quantity / 3, 10) },
+      new ThreeByTwo({ ...prod, quantity: 3 * numThreeByTwo }),
     );
+
+    // if there were odds units, move them to notDiscountable group
     const notDiscountable = prod.quantity % 3 > 0 ?
       acc.notDiscountable.concat({ ...prod, quantity: prod.quantity % 3 }) :
       acc.notDiscountable;
@@ -99,7 +104,10 @@ function threeByTwoDiscounts(products) {
   }, { discountable: [], notDiscountable: [] });
 
 
-  return [orderBy(prodsObj.discountable, 'id'), orderBy(prodsObj.notDiscountable, 'id')];
+  return [
+    orderBy(prodsObj.discountable, 'product.id'),
+    orderBy(prodsObj.notDiscountable, 'product.id'),
+  ];
 }
 
 export function groupProductsByDiscount(products) {
@@ -112,7 +120,12 @@ export function groupProductsByDiscount(products) {
   }
 
   const [menus, notDiscountedByMenu] = menuDiscounts(products);
-  const [threeByTwo, noDiscount] = threeByTwoDiscounts(notDiscountedByMenu);
+  const [threeByTwo, notDiscountedByThreeByTwo] = threeByTwoDiscounts(notDiscountedByMenu);
+
+  const noDiscount = orderBy(
+    notDiscountedByThreeByTwo.map(prod => new NoDiscount(prod)),
+    'product.id',
+  );
 
   return {
     menus,
@@ -122,5 +135,16 @@ export function groupProductsByDiscount(products) {
 }
 
 export function calcTotalPrice(productsByDiscount) {
-  return 7.5;
+  const { menus, threeByTwo, noDiscount } = productsByDiscount;
+
+  return Math.round((
+    menus.reduce((acc, menu) => (
+      acc +
+      menu.mainDish.totalPrice +
+      menu.drink.totalPrice +
+      menu.dessert.totalPrice
+    ), 0) +
+    threeByTwo.reduce((acc, prod) => acc + prod.totalPrice, 0) +
+    noDiscount.reduce((acc, prod) => acc + prod.totalPrice, 0)
+  ) * 100) / 100;
 }
