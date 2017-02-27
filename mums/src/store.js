@@ -1,14 +1,22 @@
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
-// import the root reducer
-import rootReducer from './reducers/index';
+import createSagaMiddleware from 'redux-saga';
+
+import rootReducer from './reducers';
+import rootSaga from './sagas';
+
 import initialState from './initialState';
 
+const sagaMiddleware = createSagaMiddleware();
+
 const enhancers = compose(
+  applyMiddleware(sagaMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f,
 );
 
 const store = createStore(rootReducer, initialState, enhancers);
+
+sagaMiddleware.run(rootSaga);
 
 if (module.hot) {
   module.hot.accept('./reducers/', () => {

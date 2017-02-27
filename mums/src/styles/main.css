@@ -555,8 +555,8 @@ a:focus, button:focus {
 	text-align: center;
 }
 
-.pagination__list li:first-child a,
-.pagination__list li:last-child a {
+.pagination__list li:first-child button,
+.pagination__list li:last-child button {
 	height: 30px;
   line-height: 25px;
   color: #967c5f;
@@ -567,10 +567,11 @@ a:focus, button:focus {
 	display: none;
 }
 
-.pagination__list a {
+.pagination__list button {
 	width: 30px;
 	height: 30px;
 	display: block;
+	background: transparent;
 	border: 2px solid;
   border-color: transparent;
   font-weight: 500;
@@ -578,14 +579,14 @@ a:focus, button:focus {
   border-radius: 3px;
 }
 
-.pagination__list li.active a {
+.pagination__list li.active button {
 	background: #fff;
 	border-color: #6c553c;
 	color: #6c553c;
 }
 
-.pagination__list a:hover,
-.pagination__list a:focus {
+.pagination__list button:hover,
+.pagination__list button:focus {
 	color: #6c553c;
 }
 

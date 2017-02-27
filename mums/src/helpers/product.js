@@ -44,7 +44,7 @@ export default {
       className: 'product-drink',
     },
     3: {
-      verboseName: 'dessert',
+      verboseName: 'Postre',
       className: 'product-dessert',
     },
     choices: ['1', '2', '3'],

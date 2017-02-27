@@ -30,3 +30,14 @@ export const changeSearchFilter = searchTerm => ({
   type: 'CHANGE_SEARCH_FILTER',
   searchTerm,
 });
+
+export const fetchProducts = (page, perPage) => ({
+  type: 'FETCH_PRODUCTS_REQUESTED',
+  page,
+  perPage,
+});
+
+export const changePage = page => ({
+  type: 'CHANGE_PAGE_REQUESTED',
+  page,
+});

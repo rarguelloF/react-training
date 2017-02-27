@@ -31,6 +31,7 @@
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "bootstrap": "^3.3.7",
@@ -41,14 +42,15 @@
     "lodash.debounce": "^4.0.8",
     "lodash.groupby": "^4.6.0",
     "lodash.orderby": "^4.6.0",
-    "lodash.throttle": "^4.1.1",
     "lodash.zip": "^4.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-saga": "^0.14.3",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
+    "urijs": "^1.18.7",
     "webpack": "^2.2.0"
   }
 }

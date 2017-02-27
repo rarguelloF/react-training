@@ -1,5 +1,8 @@
 export default {
   gallery: {
+    products: [],
+    page: 0,
+    total: 0,
     filters: {
       category: {
         mainDish: false,
@@ -9,7 +12,6 @@ export default {
       price: 20,
       searchTerm: '',
     },
-    products: [],
   },
   cart: {
     products: [],

@@ -3,21 +3,22 @@ import { bindActionCreators } from 'redux';
 
 import * as actionCreators from 'src/actionCreators/gallery';
 
-import ProductList from './component';
+import Pagination from './component';
 
 
 function mapStateToProps(state) {
   return {
+    totalProducts: state.gallery.total,
+    currentPage: state.gallery.page,
     products: state.gallery.products,
-    page: state.gallery.page,
-    filters: state.gallery.filters,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchProducts: bindActionCreators(actionCreators.fetchProducts, dispatch),
+    changePage: bindActionCreators(actionCreators.changePage, dispatch),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pagination);

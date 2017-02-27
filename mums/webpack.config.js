@@ -3,7 +3,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.jsx',
+    app: [
+      'babel-polyfill', // needed for using ES6 generators: https://babeljs.io/docs/usage/polyfill/
+      './src/index.jsx',
+    ],
     styles: [
       'font-awesome/css/font-awesome.min.css',
       'bootstrap/dist/css/bootstrap.min.css',

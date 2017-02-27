@@ -69,6 +69,20 @@ export default function gallery(state = initialState.gallery, action) {
         },
       };
     }
+    case 'FETCH_PRODUCTS_SUCCEEDED': {
+      return {
+        ...state,
+        products: action.response.data,
+        page: action.response.pagination.page,
+        total: action.response.total,
+      };
+    }
+    case 'CHANGE_PAGE': {
+      return {
+        ...state,
+        page: action.page,
+      };
+    }
     default: {
       return state;
     }
