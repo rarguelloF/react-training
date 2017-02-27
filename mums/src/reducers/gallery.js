@@ -51,6 +51,15 @@ export default function gallery(state = initialState.gallery, action) {
         },
       };
     }
+    case 'CHANGE_PRICE_FILTER': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          price: action.price,
+        },
+      };
+    }
     default: {
       return state;
     }

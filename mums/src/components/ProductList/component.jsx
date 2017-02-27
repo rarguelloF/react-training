@@ -5,12 +5,16 @@ import Product from 'src/components/Product';
 
 
 function shouldDisplayProduct(product, filters) {
-  return (
+  const filterByCategory = (
     (!filters.category.mainDish && !filters.category.drink && !filters.category.dessert) ||
     (product.category === '1' && filters.category.mainDish) ||
     (product.category === '2' && filters.category.drink) ||
     (product.category === '3' && filters.category.dessert)
   );
+
+  const filterByPrice = product.price <= filters.price;
+
+  return filterByCategory && filterByPrice;
 }
 
 // See: https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle
